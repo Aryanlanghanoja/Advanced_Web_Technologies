@@ -1,0 +1,13 @@
+AWT - Tasks
+
+Create end points to display the university name
+Create an endpoint to display the faculty name
+
+Create API's to display information about all students
+To Display Specific students with given id
+Create end point which will display users from the given city
+
+Create end points Perform CRUD On Books
+Create React App to perform crud operation on book
+
+From the app inside the category display the book available for that category

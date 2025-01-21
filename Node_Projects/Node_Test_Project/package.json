@@ -2,10 +2,10 @@
   "name": "node_test_project",
   "version": "1.0.0",
   "description": "This is a test project of node",
-  "main": "index.js",
+  "main": "Student.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "start": "nodemon Student.js"
   },
   "author": "Aryan Langhanoja",
   "license": "ISC",
