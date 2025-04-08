@@ -1,0 +1,24 @@
+#total-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: linear-gradient(to right, #5A7DE9 , #23D7DB);
+}
+
+#open-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: linear-gradient(to right, #FE7379 , #F65599);
+}
+
+#closed-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: linear-gradient(to right, #3BB4B4 , #40DC9A);
+}
+
+#assigned-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: linear-gradient(to right, #FF8857 , #FFC347);
+}
+
+#disqualify-card{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-image: linear-gradient(to right, #6a6d6d , #b8bdbb);
+}

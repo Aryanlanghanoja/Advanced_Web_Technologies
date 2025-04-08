@@ -1,0 +1,51 @@
+.leads{
+  margin: 10px;
+}
+
+.leads-details{
+  margin: 10px;
+  height: 500px;
+}
+
+.scroller {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.table-container{
+  margin-right: 10px;
+  height: 300px;
+}
+
+.table{
+  font-size: 12px;
+}
+
+.table-head{
+  background-color: rgb(7, 173, 7);
+  color: white;
+  margin: auto;
+  height: auto;
+}
+
+.summary-figure{
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 60px;
+  text-align: center;
+  font-weight: 500;
+  color: grey;
+}
+
+.summary-title{
+  margin-top: 0px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-weight: 500;
+  color: rgb(53, 50, 50);
+}
+
+.home-edit{
+  cursor: pointer;
+  color: blue;
+}

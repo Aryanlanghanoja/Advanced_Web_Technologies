@@ -1,0 +1,58 @@
+.scroller-admin {
+  height: 250px;
+  /* border: 1px solid rgb(139, 136, 136); */
+  overflow: auto;
+}
+
+.scroller {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.scroller-leads {
+  height: 500px;
+  /* border: 1px solid rgb(139, 136, 136); */
+  overflow: auto;
+}
+
+
+
+.table-container-assigned{
+  height: 400px;
+  overflow: auto;
+}
+
+.table-head tr th {
+  position: sticky;
+  top: 0;
+  background-color: #00B050;
+  border-bottom: 1px solid #333232;
+}
+
+/* If we use border,
+we must use table-collapse to avoid
+a slight movement of the header row */
+.table {
+ border-collapse: collapse;
+}
+
+/* Because we must set sticky on th,
+ we have to apply background styles here
+ rather than on thead */
+.th {
+  box-shadow: 0px 0px 0 2px #e8e8e8;
+}
+
+
+table {
+  width: 100%;
+}
+
+.test{
+  color: #d1008b;
+}
+
+.admin-edit{
+  cursor: pointer;
+  color: blue;
+}

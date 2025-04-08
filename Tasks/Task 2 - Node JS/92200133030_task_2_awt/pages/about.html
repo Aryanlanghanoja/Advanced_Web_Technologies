@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Our Company</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-gray: #ecf0f1;
+            --dark-gray: #34495e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: var(--light-gray);
+            color: var(--primary-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #fff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 40px;
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            background: var(--light-gray);
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h2 {
+            font-size: 24px;
+            color: var(--dark-gray);
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: var(--primary-color);
+            line-height: 1.5;
+        }
+
+        footer {
+            background: var(--dark-gray);
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent-color);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 30px;
+            background: var(--secondary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 20px;
+            }
+
+            .content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>About Us</h1>
+    <p>Committed to excellence and innovation</p>
+</header>
+
+<main>
+    <div class="content">
+        <div class="card">
+            <h2>Our Mission</h2>
+            <p>We aim to deliver high-quality products and services that empower businesses and individuals to achieve their goals through innovative technology and creative solutions.</p>
+        </div>
+
+        <div class="card">
+            <h2>Our Team</h2>
+            <p>Our dedicated team of professionals brings together diverse skills and expertise, ensuring that we deliver exceptional value to our clients and stakeholders.</p>
+        </div>
+
+        <div class="card">
+            <h2>Why Choose Us?</h2>
+            <p>With a customer-centric approach, cutting-edge technology, and a passion for excellence, we strive to exceed expectations and drive success.</p>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2025 Our Company. All rights reserved. | <a href="/">Go to Dashboard</a></p>
+</footer>
+
+</body>
+</html>

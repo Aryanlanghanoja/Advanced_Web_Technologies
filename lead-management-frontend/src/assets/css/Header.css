@@ -1,0 +1,43 @@
+.navbar {
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom: "2px solid #000000 ";
+  position: sticky;
+  background-color: white;
+  z-index: 1;
+  padding: 0px;
+}
+
+.brand{
+  padding-top: 10px;
+  padding-bottom: 0px;
+}
+
+.nav-logo {
+  float: left !important;
+  margin-top: -15px !important;
+  margin-right: 20px;
+  height: 50px;
+  width: 180;
+}
+
+.bi-three-dots{
+  font-size: 20px;
+  margin-left: 10px;
+  padding-top: 0px;
+  
+}
+
+.bi-box-arrow-right, .bi-three-dots:hover{
+  cursor: pointer;
+}
+
+.bi-box-arrow-right{
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+.user{
+  color: rgb(39, 38, 38);
+}

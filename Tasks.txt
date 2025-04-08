@@ -11,3 +11,6 @@ Create end points Perform CRUD On Books
 Create React App to perform crud operation on book
 
 From the app inside the category display the book available for that category
+Create React app to manage cart
+Create React app which will display language dropdown using comp1 and comp2 to display selected language
+On Home Page Display product title and size display such 10 products on home page on click of Add to Cart button add that product into cart once user click on cart page

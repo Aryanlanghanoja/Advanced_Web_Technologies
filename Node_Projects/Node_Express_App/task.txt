@@ -1,0 +1,1 @@
+Create the endpoints to perform the CRUD Operation for staff and student for seprate file

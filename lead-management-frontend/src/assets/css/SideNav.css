@@ -1,0 +1,67 @@
+.bi{
+  color:gray;
+  margin-right: 10px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 20%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  background-color: rgba(239, 239, 239);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 69px;
+  box-shadow: inset 0 0 2px;
+  /* display: flex; 
+  flex-direction: column; */
+}
+.sidenav-i{
+  visibility: hidden;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #076e34;
+  margin-left: 5px;
+
+}
+
+.closebtn, .bi-x-square {
+  position: absolute;
+  top: 0;
+  padding-top: 20px;
+  font-size: 20px;
+  right: 5px;
+  font-size: 40px;
+  float: right;
+}
+
+.closebtn:hover{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 950px) {
+  .sidenav a {font-size: 15px;}
+ 
+}
+
+@media screen and (max-width: 800px) {
+  .sidenav a {font-size: 20px;}
+  .sidenav-a{
+    visibility: hidden;
+  }
+  .sidenav-i{
+    visibility: visible;
+  }
+}

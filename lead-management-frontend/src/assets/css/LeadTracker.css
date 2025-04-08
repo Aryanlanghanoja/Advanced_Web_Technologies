@@ -1,0 +1,16 @@
+.stage-done{
+  background-color: #00B050;
+  color: white;
+}
+.stage-disqualified{
+  color: rgb(228, 220, 220);
+}
+
+.stage-working{
+  background-color: rgb(247, 184, 48);
+}
+
+.stage-yet{
+  background-color: rgb(126, 125, 124);
+  color: white;
+}

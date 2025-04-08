@@ -1,0 +1,19 @@
+{
+  "name": "node_express_app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2",
+    "node_express_app": "file:",
+    "nodemon": "^3.1.9",
+    "router": "^1.3.8",
+    "sequelize": "^6.37.5"
+  }
+}

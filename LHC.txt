@@ -1,0 +1,5 @@
+1) Node + Express :- Create APIs with Sequlize (MYSQL)
+2) MYSQL for DB (Sequlize)
+3) React (usestate , useEffect , useContext)
+4) Form Handling
+5) Routing , Navigation

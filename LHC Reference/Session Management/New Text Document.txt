@@ -1,0 +1,101 @@
+npm install express-session
+
+
+const express = require('express');
+const session = require('express-session');
+
+const app = express();
+
+// Add session middleware
+app.use(session({
+  secret: 'your-secret-key', // Keep this secret safe
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false } // true if using HTTPS
+}));
+
+app.use(express.json());
+
+
+Modify your login function
+
+const login = (req, res) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+
+  db.query(
+    `SELECT * FROM USERS WHERE email = ${db.escape(req.body.email)};`,
+    (error, result) => {
+      if (error) {
+        return res.status(400).json({ message: error.message });
+      }
+
+      if (!result.length) {
+        return res.status(401).json({ message: "Email or Password is Incorrect. User Not Found" });
+      } else {
+        bcrypt.compare(req.body.password, result[0]['password'], (BErr, BResult) => {
+          if (BErr) {
+            return res.status(400).json({ message: BErr.message });
+          }
+
+          if (BResult) {
+            const token = jwt.sign(
+              { id: result[0]['id'], is_admin: result[0]['is_admin'] },
+              JWT_SECRET,
+              { expiresIn: '1h' }
+            );
+
+            // ✅ Set session variables here
+            req.session.userId = result[0]['id'];
+            req.session.email = result[0]['email'];
+
+            db.query(
+              `UPDATE USERS SET last_login = now() WHERE id = '${result[0]['id']}'`
+            );
+
+            return res.status(200).json({
+              message: "Login Successfully",
+              token: token,
+              user: result[0],
+              session: {
+                userId: req.session.userId,
+                email: req.session.email
+              }
+            });
+          } else {
+            return res.status(401).json({
+              message: "Email or Password is Incorrect. Password Is Wrong",
+            });
+          }
+        });
+      }
+    }
+  );
+};
+
+
+Step 3: Access Session Data in Other Routes
+
+
+app.get('/dashboard', (req, res) => {
+  if (req.session.userId) {
+    res.send(`Welcome user ID: ${req.session.userId}, Email: ${req.session.email}`);
+  } else {
+    res.status(401).send('Not logged in');
+  }
+});
+
+
+Step 4: Logout and Destroy Session
+
+app.get('/logout', (req, res) => {
+  req.session.destroy(err => {
+    if (err) {
+      return res.status(500).send('Error logging out');
+    }
+    res.send('Logged out successfully');
+  });
+});
