@@ -1,9 +1,9 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const ListBlog = () => {
   const [blogs, setBlogs] = useState([
-    { id: 1, title: "test", author: "unknown", description: "pata nahi" },
+    { _id: "1", title: "test", author: "unknown", description: "pata nahi" },
   ]);
   useEffect(() => {
     fetchData();
@@ -34,7 +34,7 @@ const ListBlog = () => {
 
     if (updatedTitle && updatedAuthor && updatedDescription) {
       axios
-        .put(`http://localhost:3000/api/blog/${blog.id}`, {
+        .put(`http://localhost:3000/api/blog/${blog._id}`, {
           title: updatedTitle,
           author: updatedAuthor,
           description: updatedDescription,
@@ -70,6 +70,7 @@ const ListBlog = () => {
       <table>
         <thead>
             <tr>
+                <th>ID</th>
                 <th>Title</th>
                 <th>Author</th>
                 <th>Description</th>
@@ -81,13 +82,14 @@ const ListBlog = () => {
        
         {blogs.map((blog) => {
             return (
-                <tr key={blog.id}>
+                <tr key={blog._id}>
+                    <td>{blog._id}</td>
                     <td>{blog.title}</td>
                     <td>{blog.author}</td>
                     <td>{blog.description}</td>
                     <td>
                         <button onClick={() => updateBlog(blog)}>Edit</button>
-                        <button onClick={() => deleteBlog(blog.id)}>Delete</button>
+                        <button onClick={() => deleteBlog(blog._id)}>Delete</button>
                     </td>
                 </tr>
             );

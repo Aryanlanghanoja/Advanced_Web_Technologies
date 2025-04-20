@@ -40,8 +40,10 @@ exports.updateBlog = (req, res) => {
 
   blogService.updateBlog(id, blog, (err, result) => {
     if (err) {
+      console.log(err)
       res.status(500).send({ message: 'Error updating blog', error: err });
     } else {
+      console.log("Blog Updated")
       res.status(200).send({ message: 'Blog updated successfully' });
     }
   });

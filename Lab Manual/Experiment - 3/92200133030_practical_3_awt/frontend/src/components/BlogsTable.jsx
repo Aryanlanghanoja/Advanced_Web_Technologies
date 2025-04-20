@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 
 const BlogsTable = ({ blogs, onEdit, onDelete }) => {
   if (!blogs || !Array.isArray(blogs) || blogs.length === 0) {
@@ -14,15 +14,15 @@ const BlogsTable = ({ blogs, onEdit, onDelete }) => {
             <th>ID</th>
             <th>Title</th>
             <th>Author Name</th>
-            <th>Date</th>
             <th>Content</th>
+            <th>Date</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {blogs.map((blog) => (
-            <tr key={blog.id}>
-              <td>{blog.id}</td>
+            <tr key={blog._id}>
+              <td>{blog._id}</td>
               <td>{blog.title}</td>
               <td>{blog.author_name}</td>
               <td>{blog.content}</td>
@@ -36,7 +36,7 @@ const BlogsTable = ({ blogs, onEdit, onDelete }) => {
                 </button>
                 <button
                   className="delete-btn"
-                  onClick={() => onDelete(blog.id)}
+                  onClick={() => onDelete(blog._id)}
                 >
                   Delete
                 </button>
@@ -48,5 +48,6 @@ const BlogsTable = ({ blogs, onEdit, onDelete }) => {
     </div>
   );
 };
+
 
 export default BlogsTable;

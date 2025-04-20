@@ -1,7 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const AddBlogs = ({ editingBlog, onAdd }) => {
+
+AddBlogs.propTypes = {
+  editingBlog: PropTypes.shape({
+    id: PropTypes.string,
+    title: PropTypes.string,
+    author_name: PropTypes.string,
+    date: PropTypes.string,
+    content: PropTypes.string
+  }),
+  onAdd: PropTypes.func.isRequired
+};
   const [id, setId] = useState('');
   const [title, setTitle] = useState('');
   const [authorName, setAuthorName] = useState('');
@@ -14,7 +25,7 @@ const AddBlogs = ({ editingBlog, onAdd }) => {
       setId(editingBlog.id);
       setTitle(editingBlog.title);
       setAuthorName(editingBlog.author_name);
-      setDate(editingBlog.date);
+      setDate(editingBlog.date.split('T')[0]);
       setContent(editingBlog.content);
     } else {
       // Reset form when not editing
@@ -69,7 +80,7 @@ const AddBlogs = ({ editingBlog, onAdd }) => {
         onChange={(e) => setAuthorName(e.target.value)}
         required
       />
-      <textarea
+      <input
         type="text"
         placeholder="Content"
         value={content}
@@ -81,6 +92,7 @@ const AddBlogs = ({ editingBlog, onAdd }) => {
         placeholder="Date"
         value={date}
         onChange={(e) => setDate(e.target.value)}
+        required
       />
       <button type="submit">
         {editingBlog ? 'Update Blog' : 'Add Blog'}

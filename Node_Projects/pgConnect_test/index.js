@@ -1,15 +1,16 @@
 const fs = require('fs');
 const pg = require('pg');
+require('dotenv').config();
 
 const config = {
-    user: "",
-    password: "",
-    host: "",
-    port: ,
-    database: "",
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
     ssl: {
         rejectUnauthorized: true,
-        ca: 
+        ca: process.env.DB_CA,
     },
 };
 
@@ -28,6 +29,21 @@ client.connect((err) => {
             console.error('Error fetching version:', err.stack);
         } else {
             console.log('PostgreSQL Version:', result.rows[0].version);
+        }
+    });
+
+    // List all tables in the current database
+    client.query(`
+        SELECT table_name 
+        FROM information_schema.tables 
+        WHERE table_schema = 'public' 
+        ORDER BY table_name;
+    `, [], (err, result) => {
+        if (err) {
+            console.error('Error fetching tables:', err.stack);
+        } else {
+            console.log('Tables in the database:');
+            result.rows.forEach(row => console.log('- ' + row.table_name));
         }
     });
 
@@ -56,7 +72,6 @@ client.connect((err) => {
             console.error('Error executing query', err.stack);
         } else {
             console.log('ROW DELETED FROM test');
-            console.table(res.rows);
         }
 
         

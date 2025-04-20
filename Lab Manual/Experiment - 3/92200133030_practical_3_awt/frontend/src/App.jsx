@@ -33,14 +33,14 @@ const App = () => {
   const addBlog = async (newBlog) => {
     try {
       if (editingBlog) {
-        await axios.put(`${API_URL}/${editingBlog.id}`, newBlog);
+        await axios.put(`${API_URL}/${editingBlog._id}`, newBlog);
         setEditingBlog(null);
       } else {
         await axios.post(API_URL, newBlog);
       }
       fetchBlogs();
     } catch (error) {
-      console.error('Error adding/updating blog:', error);
+      console.log('Error adding/updating blog:', error);
       setError('Failed to save blog.');
     }
   };

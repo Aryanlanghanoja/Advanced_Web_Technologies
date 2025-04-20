@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Email Verification</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 450px;
+      padding: 40px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+    
+    .icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      color: #4361ee;
+    }
+    
+    h1 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 15px;
+      text-align: center;
+      line-height: 1.4;
+    }
+    
+    .success h1 {
+      color: #10b981;
+    }
+    
+    .error h1 {
+      color: #ef4444;
+    }
+    
+    p {
+      font-size: 15px;
+      color: #718096;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #4361ee;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .button:hover {
+      background: #3651d4;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+    }
+    
+    .resend-section {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #edf2f7;
+    }
+    
+    .resend-section p {
+      margin-bottom: 15px;
+      font-size: 14px;
+    }
+    
+    .secondary-button {
+      display: inline-block;
+      padding: 8px 16px;
+      background: transparent;
+      color: #4361ee;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s;
+      font-size: 14px;
+      border: 1px solid #4361ee;
+    }
+    
+    .secondary-button:hover {
+      background: #eef0ff;
+    }
+    
+    .default-message {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .verification-steps {
+      text-align: left;
+      margin: 20px 0;
+    }
+    
+    .verification-steps ol {
+      padding-left: 25px;
+    }
+    
+    .verification-steps li {
+      margin-bottom: 10px;
+      color: #4a5568;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <% if (message) { %>
+      <!-- Dynamic message display -->
+      <% if (message.includes("success") || message.includes("verified")) { %>
+        <div class="success">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+          </svg>
+          <h1><%= message %></h1>
+          <p>Your email has been successfully verified. You can now access all features of your account.</p>
+          <a href="/login" class="button">Go to Login</a>
+        </div>
+      <% } else if (message.includes("error") || message.includes("invalid") || message.includes("expired")) { %>
+        <div class="error">
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="15" y1="9" x2="9" y2="15"></line>
+            <line x1="9" y1="9" x2="15" y2="15"></line>
+          </svg>
+          <h1><%= message %></h1>
+          <p>We encountered a problem with your verification link. It may be invalid or expired.</p>
+          <div class="resend-section">
+            <p>Would you like to receive a new verification link?</p>
+            <a href="/resend-verification" class="secondary-button">Resend Verification Email</a>
+          </div>
+        </div>
+      <% } else { %>
+        <div>
+          <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 8v4"></path>
+            <path d="M12 16h.01"></path>
+          </svg>
+          <h1><%= message %></h1>
+          <p>Please check your email for further instructions.</p>
+          <a href="/" class="button">Return to Homepage</a>
+        </div>
+      <% } %>
+    <% } else { %>
+      <!-- Default state - no message -->
+      <div class="default-message">
+        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4361ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+          <polyline points="22,6 12,13 2,6"></polyline>
+        </svg>
+        <h1>Verify Your Email Address</h1>
+        <p>Thanks for signing up! We've sent a verification email to your inbox. Please verify your email address to complete your registration.</p>
+        
+        <div class="verification-steps">
+          <ol>
+            <li>Check your email inbox for a message from us</li>
+            <li>Open the email and click on the verification link</li>
+            <li>Once verified, you'll be able to access your account</li>
+          </ol>
+        </div>
+        
+        <div class="resend-section">
+          <p>Didn't receive the email?</p>
+          <a href="/resend-verification" class="secondary-button">Resend Verification Email</a>
+        </div>
+      </div>
+    <% } %>
+  </div>
+</body>
+</html>

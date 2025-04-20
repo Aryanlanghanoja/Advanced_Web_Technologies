@@ -1,0 +1,46 @@
+/* HomePage.css */
+
+.homepage-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.navigation-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    background-color: #ffffff;
+    border: 2px solid #4CAF50;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 500;
+    color: #4CAF50;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-button:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.tab-button.active {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.component-display {
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}

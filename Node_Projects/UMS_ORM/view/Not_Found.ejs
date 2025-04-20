@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 Not Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: #f5f7fb;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+    
+    .error-container {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      padding: 40px;
+      max-width: 450px;
+      width: 100%;
+    }
+    
+    .error-icon {
+      width: 70px;
+      height: 70px;
+      margin: 0 auto 20px;
+      color: #4361ee;
+    }
+    
+    h1 {
+      font-size: 7rem;
+      font-weight: 700;
+      color: #4361ee;
+      margin-bottom: 10px;
+      line-height: 1;
+      animation: popUp 0.6s ease-out;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2d3748;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      font-size: 1rem;
+      color: #718096;
+      margin-bottom: 30px;
+      line-height: 1.6;
+    }
+    
+    a {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #4361ee;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: all 0.3s;
+      font-size: 16px;
+    }
+    
+    a:hover {
+      background: #3651d4;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+    }
+    
+    @keyframes popUp {
+      from {
+        transform: scale(0.5);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 5rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      .error-container {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 8v4"></path>
+      <path d="M12 16h.01"></path>
+    </svg>
+    
+    <h1>404</h1>
+    <h2>Page Not Found</h2>
+    <p>Sorry, the page you're looking for doesn't exist or has been moved.</p>
+    <a href="/">Go Back Home</a>
+  </div>
+</body>
+</html>

@@ -37,7 +37,7 @@ exports.findAllByTitle = async (req, res) => {
 };
 
 exports.findOne = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params._id;
   try {
     const blog = await blogService.findBlogById(id);
     if (!blog) {
@@ -51,7 +51,7 @@ exports.findOne = async (req, res) => {
 };
 
 exports.update = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params._id;
   const updateData = req.body;
   try {
     const result = await blogService.updateBlog(id, updateData);
@@ -66,7 +66,7 @@ exports.update = async (req, res) => {
 };
 
 exports.delete = async (req, res) => {
-  const id = req.params.id;
+  const id = req.params._id;
   try {
     const result = await blogService.deleteBlog(id);
     if (!result) {

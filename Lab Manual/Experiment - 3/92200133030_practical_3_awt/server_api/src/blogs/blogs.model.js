@@ -23,10 +23,10 @@ class Blog {
   static update(id, blog, callback) {
     const query = `
       UPDATE blogs
-      SET title = ?, author_name = ?, date = ?
+      SET title = ?, author_name = ?, content = ?, date = ?
       WHERE id = ?`;
 
-    db.query(query, [blog.title, blog.author_name, blog.date || new Date(), id], callback);
+    db.query(query, [blog.title, blog.author_name, blog.content, blog.date || new Date().split('T')[0], id], callback);
   }
 
   static delete(id, callback) {
